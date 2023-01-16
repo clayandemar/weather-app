@@ -12,11 +12,11 @@ $(document).ready(function () {
   if (lsArray === null)
     lsArray = [];
 
-    rebuildMenu();
+  rebuildMenu();
 
 
-  function rebuildMenu(){
-  $(".dropdown-menu").empty()
+  function rebuildMenu() {
+    $(".dropdown-menu").empty()
     for (var i = 0; i < lsArray.length; i++) {
       $(".dropdown-menu").append("<li><a class='dropdown-item' href='#'>" + lsArray[i] + "</a></li>")
     }
@@ -29,14 +29,14 @@ $(document).ready(function () {
     $(".dropdown-menu").slideUp();
     open = false;
     console.log($(this).text())
-    
+
   });
 
   //button click for search
   $(".btn").click(function buttonClick(e) {
     var citySearched = $(".form-control").val();
     $("#allBoxes").fadeIn();
-    
+
 
 
     //  const apiCity = fetch("https://api.openweathermap.org/data/2.5/weather?q=" + citySearched + "&APPID=3dbd7567d6829a773ae96978861ebc2a");
@@ -51,7 +51,7 @@ $(document).ready(function () {
           lsArray.push(citySearched);
         localStorage.setItem("Searched Cities", JSON.stringify(lsArray));
         console.log(lsArray);
-      
+
 
         //todays weather
         var farenheit = ((data.main.temp - 273.15) * 9 / 5 + 32)
@@ -72,7 +72,7 @@ $(document).ready(function () {
               $("#wind" + i).text("Wind: " + data.list[i * 8].wind.speed + "mph");
               $("#humidity" + i).text("Humidity: " + data.list[i * 8].main.humidity + "%");
             }
-        
+            rebuildMenu();
           });
       });
   });

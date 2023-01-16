@@ -72,7 +72,7 @@ $(document).ready(function () {
               $("#wind" + i).text("Wind: " + data.list[i * 8].wind.speed + "mph");
               $("#humidity" + i).text("Humidity: " + data.list[i * 8].main.humidity + "%");
             }
-            rebuildMenu();
+            
           });
       });
   });

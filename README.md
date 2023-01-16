@@ -28,5 +28,5 @@ THEN my searches are still in the recents tab
 The following image shows the web application's appearance and functionality:
 
 ![Screenshot](./Assets/screenshot.png)
-![URL](https://clayandemar.github.io/weather-app/)
+[url](https://clayandemar.github.io/weather-app/)
 

@@ -9,7 +9,7 @@ $(document).ready(function () {
 
   // array local storage
   var lsArray = JSON.parse(localStorage.getItem("Searched Cities"));
-  if (lsArray === null)
+  if (!lsArray)
     lsArray = [];
 
   rebuildMenu();

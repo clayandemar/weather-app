@@ -20,22 +20,29 @@ $(document).ready(function () {
     for (var i = 0; i < lsArray.length; i++) {
       $(".dropdown-menu").append("<li><a class='dropdown-item' href='#'>" + lsArray[i] + "</a></li>")
     }
+    $(".dropdown-item").click(function buttonClick(e) {
+      console.log($(this).text())
+      $(".form-control").val($(this).text());
+      $(".btn").click();
+      $(".dropdown-menu").slideUp();
+      open = false;
+    });
   }
 
   // recents click on name of city function
-  $(".dropdown-item").click(function buttonClick(e) {
-    $(".form-control").val($(this).text());
-    $(".btn").click();
-    $(".dropdown-menu").slideUp();
-    open = false;
-    console.log($(this).text())
-
-  });
+  // $(".dropdown-item").click(function buttonClick(e) {
+  //   console.log($(this).text())
+  //   $(".form-control").val($(this).text());
+  //   $(".btn").click();
+  //   $(".dropdown-menu").slideUp();
+  //   open = false;
+  // });
 
   //button click for search
   $(".btn").click(function buttonClick(e) {
     var citySearched = $(".form-control").val();
     $("#allBoxes").fadeIn();
+
 
 
 
@@ -72,7 +79,7 @@ $(document).ready(function () {
               $("#wind" + i).text("Wind: " + data.list[i * 8].wind.speed + "mph");
               $("#humidity" + i).text("Humidity: " + data.list[i * 8].main.humidity + "%");
             }
-            
+            rebuildMenu();
           });
       });
   });
